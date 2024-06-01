@@ -2,7 +2,7 @@
 
 
 # Some basic progrmas
-sudo pacman -S stow nvim i3 rofi polybar picom eww feh alacritty python-pywal pulseaudio neofetch
+sudo pacman -S stow nvim i3 rofi polybar picom eww feh alacritty python-pywal pulseaudio neofetch fzf zoxide
 
 # Install programs for the visual effects
 sudo pacman -S xorg xorg-xinit
