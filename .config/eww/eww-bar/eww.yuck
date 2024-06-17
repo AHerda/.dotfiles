@@ -1,11 +1,11 @@
-(defwindow bar
+(defwindow eww-bar
 	:monitor 0
 	:stacking "fg"
 	:windowtype "normal"
 	:geometry (geometry
 		:width "100%"
 		:height "100%")
-	"Hello World!")
+	(bar_layout))
 
 (defwidget bar_layout []
 	(label :text "Hello, World!"))

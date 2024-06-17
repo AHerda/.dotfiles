@@ -41,7 +41,7 @@ border-size = 4pt
 border-color = #00000000
 
 padding-left = 0
-padding-right = 1
+padding-right = 2
 
 module-margin = 1
 
@@ -270,6 +270,7 @@ time-format = %H:%M:%S
 [module/powermenu]
 type = custom/text
 format-spacing = 1
-content = 
+content =  
 content-foreground = ${colors.alert}
 click-left = bash ~/scripts/rofi/launch.sh powermenu
+

@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/adrian/wallpapers/roadtrip_wallpaper.jpg' 
+feh --no-fehbg --bg-fill '/home/adrian/wallpapers/fantasy-nature-river-nnho.jpeg' 

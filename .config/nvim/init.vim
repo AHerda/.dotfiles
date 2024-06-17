@@ -20,7 +20,11 @@ Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim'
 syntax enable
 filetype plugin indent on
+
 Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/syntastic'
+Plug 'morhetz/gruvbox'
+
 Plug 'yggdroot/indentline'
 Plug 'elkowar/yuck.vim'
 
