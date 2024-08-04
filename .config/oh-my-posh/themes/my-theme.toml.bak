@@ -1,0 +1,39 @@
+version = 1
+final_space = true
+console_title_template = "{{ .Shell }} in {{ .Folder }}"
+
+[palette]
+    white = "#DEDEDE"
+
+[[blocks]]
+    type = "prompt"
+    alignment = "left"
+
+    [[blocks.segments]]
+        type = "os"
+        style = "plain"
+        foreground = "p:white"
+        template = "{{ .Icon }} "
+
+    [[blocks.segments]]
+        type = "profile"
+        style = "plain"
+        foreground = "p:white"
+        template = "{{ .UserName }} "
+
+    [[blocks.segmetns]]
+        type = "path"
+        style = "plain"
+        foreground = "p:white"
+        template = "  {{ path .Path .Location }} "
+      
+        [blocks.segemnts.properties]
+            style = "folder"
+
+[transient_prompt]
+    foreground = "p:white"
+    template = " {{ .Folder }} "
+
+[secondary_prompt]
+    foreground = "p:white"
+    template = "$ "

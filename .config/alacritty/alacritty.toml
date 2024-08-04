@@ -1,3 +1,7 @@
 import = [
 	"~/.config/alacritty/themes/papercolor_dark.toml"
 ]
+
+[font]
+normal = { family = "Fira Code Nerd Font Mono", style = "regular"}
+size = 10.0

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 # Some basic progrmas
-sudo pacman -S stow nvim hyprland waybar rofi eww alacritty python-pywal pulseaudio neofetch fzf zoxide
+sudo pacman -S stow nvim hyprland hyprpaper hyprlock waybar rofi eww alacritty python-pywal pulseaudio neofetch fzf zoxide
 
 # Install programs for the visual effects
-echo "Check for the brand of your graphix card and install appropriate driver (https://wiki.archlinux.org/title/xorg)"
-lspci -v | grep -A1 -e VGA -e 3D
-pacman -Ss xf86-video
+#echo "Check for the brand of your graphix card and install appropriate driver (https://wiki.archlinux.org/title/xorg)"
+#lspci -v | grep -A1 -e VGA -e 3D
+#pacman -Ss xf86-video
 
 
 # Install zsh
