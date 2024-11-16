@@ -11,45 +11,87 @@ console_title_template = "{{ .Shell }} in {{ .Folder }}"
   [[blocks.segments]]
     type = "session"
     style = "plain"
-    foreground = "p:yellow"
-    template = " {{ if .SSHSession }}\ueb39{{ end }} "
+    foreground = "p:purple"
+    template = "{{ if .SSHSession }}{{ end }} "
 
   [[blocks.segments]]
     type = "os"
     style = "plain"
-    foreground = "p:blue"
-    template = " {{ .Icon }} {{ .HostName }} "
+    foreground = "p:golden"
+    template = "{{ .Icon }} {{ .HostName }} "
 
   [[blocks.segments]]
     type = "session"
     style = "plain"
-    foreground = "p:green"
-    template = " \uf2c0 {{ .UserName }} "
+    foreground = "p:lime"
+    template = "  {{ .UserName }} "
 
   [[blocks.segments]]
     type = "path"
     style = "plain"
-    foreground = "p:cyan"
+    foreground = "p:teal"
     template = "  {{ path .Path .Location }}"
 
-[secondary_prompt]
-  background = "transparent"
-  foreground = "p:white"
-  template = " $"
+[[blocks]]
+  type = "prompt"
+  alignment = "right"
+
+  [[blocks.segments]]
+    type = "git"
+    style = "plain"
+    foreground = "p:steel"
+    template = "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}{{ .Behind }}{{ end }}{{ if gt .Ahead 0 }}{{ .Ahead }}{{ end }}{{ if or (gt .Ahead 0) (gt .Behind 0) }} {{ end }}"
+    
+    [blocks.segments.properties]
+      fetch_bare_info = true
+      fetch_staus = true
+      github_icon = ""
+      branch_icon = ""
+
+  [[blocks.segments]]
+    type = "time"
+    style = "plain"
+    foreground = "p:magenta2"
+
+[[blocks]]
+  type = "prompt"
+  alignment = "left"
+  newline = true
+
+  [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    foreground_templates = [
+      "{{ if gt .Code 0 }}p:red{{ end }}",
+      "{{ if eq .Code 0 }}p:teal{{ end }}",
+    ]
+    template = "❯"
 
 [transient_prompt]
-  foreground = "p:yellow"
-  template = " {{ .Folder }} $ "
+  foreground = "p:purple"
+  template = "{{ .Folder }} {{ if gt .Code 0 }}<p:red>❯</>{{ else }}<p:teal>❯</>{{ end }} "
+  newline = true
+
+[secondary_prompt]
+  foreground = "p:teal"
+  template = "❯❯"
 
 [palette]
-  black   = "#585858"
-  blue    = "#ffaf00"
-  cyan    = "#00afaf"
-  green   = "#afd700"
-  magenta = "#ffaf00"
-  red     = "#5faf5f"
-  white   = "#5f8787" 
-  yellow  = "#af87d7"
+  white     = "#fafafa"
+  black     = "#1c1c1c"
+  gray      = "#585858"
+  golden    = "#ffaf00"
+  teal      = "#00afaf"
+  lime      = "#afd700"
+  green     = "#5faf5f"
+  steel     = "#5f8787"
+  purple    = "#af87d7"
+  yellow    = "#ffe066"
+  yellow2   = "#ffc300"
+  red       = "#ff5f5f"
+  magenta   = "#af5faf"
+  magenta2  = "#ff77ff"
+
 #[palettes]
 #  template = "normal"
 #  list = [
@@ -68,7 +110,6 @@ console_title_template = "{{ .Shell }} in {{ .Folder }}"
 #      blue    = "#ffaf00"
 #      cyan    = "#00afaf"
 #      green   = "#afd700"
-#      magenta = "#ffaf00"
 #      red     = "#5faf5f"
 #      white   = "#5f8787" 
 #      yellow  = "#af87d7"

@@ -2,7 +2,10 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# normal distro if NixOs Disable this
+# export ZSH="$HOME/.oh-my-zsh"
+# NixOS
+# export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
 
 # Set path to editor: nvim
 export EDITOR=/usr/bin/nvim
@@ -73,6 +76,7 @@ export EDITOR=/usr/bin/nvim
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# enable zsh-autosuggestions and highlighting if not on NixOS
 plugins=(git archlinux docker rust themes sudo history encode64 copypath zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -102,9 +106,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="eza"
+alias l="eza -al"
+alias ls="eza -l"
+alias ll="eza"
 alias cat="bat"
 alias v="nvim"
+alias ".."="z .."
 
 # zoxide initializer
 eval "$(zoxide init zsh)"
