@@ -45,7 +45,9 @@
         "class<firefox>": " ",
         "title<(zsh|Alacritty).*>": " ",
         "title<nvim.*>": " ",
-        "title<.*nix>": " "
+        "title<.*nix>": " ",
+        "title<tmux>": " ",
+        "class<Telegram.*>": ""
       }
     },
     "clock": {
