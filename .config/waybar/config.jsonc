@@ -1,6 +1,6 @@
 {
   "position": "top",
-    "margin-top" : 5,
+    "margin-top" : 10,
     "margin-left": 10,
     "margin-right": 10,
     "height" : 35,
@@ -99,7 +99,7 @@
         "phone": "",
         "portable": "",
         "car": "",
-        "default": ["", "", "", ""]
+        "default": ["", "", ""]
       },
       "on-click": "pulseaudio-ctl mute"
     },
