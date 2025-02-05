@@ -1,0 +1,25 @@
+;; variables
+(defpoll BLIGHT :interval "1s" `light`)
+
+(defwindow example
+    :monitor '["<primary>", 0]'
+    :geometry (geometry
+        :x "80%"
+        :y "10px"
+        :width "20px"
+        :height "200px")
+    :stacking "fg"
+    :reserve (struts :distance "40px" :side "top")
+    :windowtype "normal"
+    :wm-ignore true
+    (slider))
+
+(defwidget slider []
+    (scale
+        :flipped true
+        :round-digits 0
+        :value BLIGHT
+        :min 1.0
+        :max 101.0
+        :onchange "light -S {}"
+        :orientation "vertical"))

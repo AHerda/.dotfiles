@@ -3,7 +3,6 @@
     "margin-top" : 10,
     "margin-left": 10,
     "margin-right": 10,
-    "height" : 35,
     "modules-left": [
       "hyprland/workspaces",
     ],
@@ -22,12 +21,13 @@
       "format": "{}",
       "max-length": 35,
       "rewrite": {
-        "": "Hyprland"
+        "": "Hyprland",
+        "v": "NeoVim"
       },
       "separate-outputs": true,
     },
     "hyprland/workspaces": {
-      "format": "{icon} {windows}|",
+      "format": "{icon}{windows}",
       // "format-window-separator": "|",
       "on-click": "activate",
       // "format-icons": {
@@ -43,11 +43,13 @@
         "title<.*youtube.*>": " ",
         "class<firefox> title<.*github.*>": " ",
         "class<firefox>": " ",
-        "title<(zsh|Alacritty).*>": " ",
+        "title<(zsh|Alacritty|ghostty|nu.*).*>": " ",
         "title<nvim.*>": " ",
-        "title<.*nix>": " ",
+        "title<v.*>": " ",
+        "title<.*nix.*>": " ",
         "title<tmux>": " ",
-        "class<Telegram.*>": ""
+        "title<.*(Telegram|telegram).*>": " ",
+        "class<(Spotify|spotify).*>": " "
       }
     },
     "clock": {
@@ -56,7 +58,7 @@
       "format-alt": "  {:%Y-%m-%d}"
     },
     "cpu": {
-      "format": " {usage}%",
+      "format": "  {usage}%",
       "tooltip": false
     },
     "memory": {
@@ -65,19 +67,19 @@
     "temperature": {
       "critical-threshold": 80,
       "format": "{icon} {temperatureC}°C",
-      "format-icons": ["", "", ""]
+      "format-icons": ["", " ", " "]
     },
     "battery": {
       "states": {
         "warning": 30,
         "critical": 15
       },
-      "format": "{icon}  {capacity}%",
-      "format-full": "{icon}  {capacity}%",
+      "format": "{icon} {capacity}%",
+      "format-full": "{icon} {capacity}%",
       "format-charging": "  {capacity}%",
       "format-plugged": "  {capacity}%",
-      "format-alt": "{icon}  {time}",
-      "format-icons": ["", "", "", "", ""]
+      "format-alt": "{icon} {time}",
+      "format-icons": [" ", " ", " ", " ", " "]
     },
     "network": {
       "format-wifi": "  {signalStrength}%",
@@ -88,24 +90,25 @@
       "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
-      "format": "{icon}  {volume}%",
-      "format-bluetooth": " {volume}% {icon}  {format_source}",
-      "format-bluetooth-muted": " 󰸈 {icon}  {format_source}",
+      "format": "{icon} {volume}%",
+      "format-bluetooth": " {volume}% {icon}{format_source}",
+      "format-bluetooth-muted": " 󰸈 {icon}{format_source}",
       "format-muted": "  {volume}%",
       "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", "", ""]
+        "headphone": " ",
+        "hands-free": " ",
+        "headset": " ",
+        "phone": " ",
+        "portable": " ",
+        "car": " ",
+        "default": ["", " ", " "]
       },
       "on-click": "pulseaudio-ctl mute"
     },
     "backlight": {
       "device": "intel_backlight",
-      "format": "{icon}  {percent}%",
-      "format-icons": ["󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩒", "󱩔", "󱩕", "󱩖", "󰛨"]
+      "format": "{icon} {percent}%",
+      "format-icons": ["󰛩 ", "󱩎 ", "󱩏 ", "󱩐 ", "󱩑 ", "󱩒 ", "󱩒 ", "󱩔 ", "󱩕 ", "󱩖 ", "󰛨 "],
+      "on-click": "bash ~/.config/eww/widgets/launch_slider.sh"
     }
 }
