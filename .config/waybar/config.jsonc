@@ -83,7 +83,7 @@
     },
     "network": {
       "format-wifi": "  {signalStrength}%",
-      "format-ethernet": "{cidr} ",
+      "format-ethernet": "  {signalStrength}%",
       "tooltip-format": "{ifname} via {gwaddr} ",
       "format-linked": "{ifname} (No IP) ",
       "format-disconnected": " ⚠ ",
@@ -91,9 +91,9 @@
     },
     "pulseaudio": {
       "format": "{icon} {volume}%",
-      "format-bluetooth": " {volume}% {icon}{format_source}",
-      "format-bluetooth-muted": " 󰸈 {icon}{format_source}",
-      "format-muted": "  {volume}%",
+      "format-bluetooth": " {icon} {volume}%",
+      "format-bluetooth-muted": " 󰸈 {volume}%",
+      "format-muted": "󰸈 {volume}%",
       "format-icons": {
         "headphone": " ",
         "hands-free": " ",
@@ -101,7 +101,7 @@
         "phone": " ",
         "portable": " ",
         "car": " ",
-        "default": ["", " ", " "]
+        "default": [" ", "", " ", " "]
       },
       "on-click": "pulseaudio-ctl mute"
     },

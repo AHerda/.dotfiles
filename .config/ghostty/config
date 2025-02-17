@@ -5,6 +5,8 @@ window-padding-x = 0
 window-padding-y = 0
 # window-subtitle = working-directory
 
+font-size = 9
+
 cursor-style = bar
 mouse-hide-while-typing = true
 link-url = true
