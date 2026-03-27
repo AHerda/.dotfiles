@@ -1,117 +1,108 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 4
 final_space = true
-console_title_template = "{{ .Shell }} in {{ .Folder }}"
-
-[[blocks]]
-  type = "prompt"
-  alignment = "left"
-
-  [[blocks.segments]]
-    type = "session"
-    style = "plain"
-    foreground = "p:purple"
-    template = "{{ if .SSHSession }}{{ end }} "
-
-  [[blocks.segments]]
-    type = "os"
-    style = "plain"
-    foreground = "p:golden"
-    template = "{{ .Icon }} {{ .HostName }} "
-
-  [[blocks.segments]]
-    type = "session"
-    style = "plain"
-    foreground = "p:lime"
-    template = "  {{ .UserName }} "
-
-  [[blocks.segments]]
-    type = "path"
-    style = "plain"
-    foreground = "p:teal"
-    template = "  {{ path .Path .Location }}"
-
-[[blocks]]
-  type = "prompt"
-  alignment = "right"
-
-  [[blocks.segments]]
-    type = "git"
-    style = "plain"
-    foreground = "p:steel"
-    template = "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}{{ .Behind }}{{ end }}{{ if gt .Ahead 0 }}{{ .Ahead }}{{ end }}{{ if or (gt .Ahead 0) (gt .Behind 0) }} {{ end }}"
-    
-    [blocks.segments.properties]
-      fetch_bare_info = true
-      fetch_staus = true
-      github_icon = ""
-      branch_icon = ""
-
-  [[blocks.segments]]
-    type = "time"
-    style = "plain"
-    foreground = "p:magenta2"
-
-[[blocks]]
-  type = "prompt"
-  alignment = "left"
-  newline = true
-
-  [[blocks.segments]]
-    type = "text"
-    style = "plain"
-    foreground_templates = [
-      "{{ if gt .Code 0 }}p:red{{ end }}",
-      "{{ if eq .Code 0 }}p:teal{{ end }}",
-    ]
-    template = "❯"
-
-[transient_prompt]
-  foreground = "p:purple"
-  template = "{{ .Folder }} {{ if gt .Code 0 }}<p:red>❯</>{{ else }}<p:teal>❯</>{{ end }} "
-  newline = true
-
-[secondary_prompt]
-  foreground = "p:teal"
-  template = "❯❯"
 
 [palette]
-  white     = "#fafafa"
-  black     = "#1c1c1c"
-  gray      = "#585858"
-  golden    = "#ffaf00"
-  teal      = "#00afaf"
-  lime      = "#afd700"
-  green     = "#5faf5f"
-  steel     = "#5f8787"
-  purple    = "#af87d7"
-  yellow    = "#ffe066"
-  yellow2   = "#ffc300"
-  red       = "#ff5f5f"
-  magenta   = "#af5faf"
-  magenta2  = "#ff77ff"
+  black = '#1c1c1c'
+  golden = '#ffaf00'
+  gray = '#585858'
+  green = '#5faf5f'
+  lime = '#afd700'
+  magenta = '#af5faf'
+  magenta2 = '#ff77ff'
+  purple = '#af87d7'
+  red = '#ff5f5f'
+  steel = '#5f8787'
+  teal = '#00afaf'
+  white = '#fafafa'
+  yellow = '#ffe066'
+  yellow2 = '#ffc300'
 
-#[palettes]
-#  template = "normal"
-#  list = [
-#    normal = {
-#      black   = "#1c1c1c"
-#      blue    = "#5fafd7"
-#      cyan    = "#d7875f"
-#      green   = "#5faf00"
-#      magenta = "#808080"
-#      red     = "#af005f"
-#      white   = "#d0d0d0"
-#      yellow  = "#d7af5f"
-#    },
-#    bright = {
-#      black   = "#585858"
-#      blue    = "#ffaf00"
-#      cyan    = "#00afaf"
-#      green   = "#afd700"
-#      red     = "#5faf5f"
-#      white   = "#5f8787" 
-#      yellow  = "#af87d7"
-#    }
-#  ]
+[secondary_prompt]
+  template = '❯❯'
+  foreground = 'p:teal'
+
+[transient_prompt]
+  template = '{{ .Folder }} {{ if gt .Code 0 }}<p:red>❯</>{{ else }}<p:teal>❯</>{{ end }} '
+  foreground = 'p:purple'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = '{{ if .SSHSession }}{{ end }} '
+    foreground = 'p:purple'
+    type = 'session'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '{{ .Icon }} {{ .HostName }} '
+    foreground = 'p:golden'
+    type = 'os'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '  {{ .UserName }} '
+    foreground = 'p:lime'
+    type = 'session'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '  {{ path .Path .Location }}'
+    foreground = 'p:teal'
+    type = 'path'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    template = '{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}{{ .Behind }}{{ end }}{{ if gt .Ahead 0 }}{{ .Ahead }}{{ end }}{{ if or (gt .Ahead 0) (gt .Behind 0) }} {{ end }}'
+    foreground = 'p:steel'
+    type = 'git'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      cache_duration = 'none'
+      fetch_bare_info = true
+      fetch_staus = true
+      github_icon = ''
+
+  [[blocks.segments]]
+    foreground = 'p:magenta2'
+    type = 'time'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = '❯'
+    type = 'text'
+    style = 'plain'
+    foreground_templates = ['{{ if gt .Code 0 }}p:red{{ end }}', '{{ if eq .Code 0 }}p:teal{{ end }}']
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
