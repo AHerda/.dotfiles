@@ -1,0 +1,107 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os$hostname$username$directory$fill\
+$git_branch$git_status$rust$typst$c$cpp\
+$nix_shell$shell
+$character
+"""
+
+scan_timeout = 10
+palette = "mine_1"
+
+[os]
+    disabled = false
+    style = "golden"
+    [os.symbols]
+        Fedora = ' '
+        NixOS= ' '
+
+[hostname]
+    ssh_only = false
+    format = "[$hostname]($style) "
+    style = "golden"
+
+[username]
+    format = "[ $user]($style) "
+    style_user = "lime"
+    style_root = "bold red"
+    show_always = true
+
+[directory]
+    format = "[ ]($style)[$read_only]($read_only_style)[$path]($style)"
+    read_only = " "
+    style = "teal"
+    read_only_style = "bold red"
+    repo_root_format = "[ $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+    repo_root_style = "underline bold teal"
+    truncation_symbol = "../"
+    truncation_length = 8
+
+[fill]
+    symbol = " "
+
+[git_branch]
+    format = "[$symbol$branch(:$remote_branch)]($style) "
+    symbol = " "
+
+[git_status]
+    ahead = '🡑${count}'
+    diverged = '⥮🡑${ahead_count}🡓${behind_count}'
+    behind = '🡓${count}'
+    style = "steel"
+
+[rust]
+    format = "[$symbol($version)]($style)"
+    symbol = " "
+    style = "orange"
+[typst]
+    format = "[$symbol($version)]($style)"
+    symbol = " "
+    style = "blue"
+[c]
+    format = "[$symbol($version(-$name) )]($style)"
+    symbol = " "
+    style = "blue"
+[cpp]
+    format = "[$symbol($version)]($style)"
+    symbol = " "
+    style = "blue"
+    detect_files = ["CMakeLists.txt"]
+    detect_folders = ['CMake/']
+
+[nix-shell]
+    format = "[in](gray) [$symbol]($style)"
+    symbol = " "
+    style = "bold blue"
+[shell]
+    format = "[in](gray) [$indicator]($style)"
+    style = "green"
+    disabled = false
+    bash_indicator = " "
+    powershell_indicator = " "
+    nu_indicator = "nu "
+
+[character]
+    success_symbol = "[❯](green)"
+    error_symbol = "[✖](bold red)"
+
+[palettes.mine_1]
+    black = '#1c1c1c'
+    golden = '#ffaf00'
+    gray = '#585858'
+    green = '#5faf5f'
+    lime = '#afd700'
+    magenta = '#af5faf'
+    magenta2 = '#ff77ff'
+    purple = '#af87d7'
+    red = '#ff5f5f'
+    steel = '#5f8787'
+    teal = '#00afaf'
+    blue = '#458588'
+    white = '#fafafa'
+    yellow = '#ffe066'
+    yellow2 = '#ffc300'
+    orange = '#fe8019'
+    orange2 = '#d65d0e'
+
